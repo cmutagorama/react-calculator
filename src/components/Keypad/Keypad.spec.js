@@ -1,7 +1,6 @@
 import React from "react";
 import { mount, shallow } from "enzyme";
 import Keypad from "./Keypad";
-import Key from "../Key/Key";
 
 describe("Keypad", () => {
   let wrapper;
@@ -28,7 +27,10 @@ describe("Keypad", () => {
     const operators = ["+", "-"];
     const submit = 1;
     const keyTotal = numbers.length + operators.length + submit;
-    wrapper.setProps({ numbers, operators });
+    wrapper.setProps({
+      numbers,
+      operators
+    });
     expect(wrapper.find("Key").length).toEqual(keyTotal);
   });
 });
@@ -48,12 +50,16 @@ describe("mounted Keypad", () => {
   });
 
   it("renders the values of numbers to the DOM", () => {
-    wrapper.setProps({ numbers: ["0", "1", "2"] });
+    wrapper.setProps({
+      numbers: ["0", "1", "2"]
+    });
     expect(wrapper.find(".numbers-container").text()).toEqual("012");
   });
 
   it("renders the values of operators to the DOM", () => {
-    wrapper.setProps({ operators: ["+", "-", "*", "/"] });
+    wrapper.setProps({
+      operators: ["+", "-", "*", "/"]
+    });
     expect(wrapper.find(".operators-container").text()).toEqual("+-*/");
   });
 });

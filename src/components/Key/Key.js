@@ -6,6 +6,9 @@ const Key = ({ keyAction, keyType, keyValue }) => (
   <div
     className={`key-container ${keyType}`}
     onClick={() => keyAction(keyValue)}
+    onKeyPress={() => keyAction(keyValue)}
+    role="button"
+    tabIndex="0"
   >
     <p className="key-value">{keyValue}</p>
   </div>

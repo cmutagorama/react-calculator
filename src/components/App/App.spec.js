@@ -5,7 +5,9 @@ import Calculator from "../Calculator/Calculator";
 
 describe("App", () => {
   let wrapper;
-  beforeEach(() => (wrapper = shallow(<App />)));
+  beforeEach(() => {
+    wrapper = shallow(<App />);
+  });
 
   it("should render correctly", () => expect(wrapper).toMatchSnapshot());
 

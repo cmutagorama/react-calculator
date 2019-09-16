@@ -42,8 +42,8 @@ const Keypad = ({
 
 Keypad.propTypes = {
   callOperator: PropTypes.func.isRequired,
-  numbers: PropTypes.array.isRequired,
-  operators: PropTypes.array.isRequired,
+  numbers: PropTypes.InstanceOf(Array).isRequired,
+  operators: PropTypes.InstanceOf(Array).isRequired,
   setOperator: PropTypes.func.isRequired,
   updateDisplay: PropTypes.func.isRequired
 };

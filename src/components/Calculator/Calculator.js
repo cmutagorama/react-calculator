@@ -35,7 +35,7 @@ class Calculator extends React.Component {
         displayValue = storedValue - displayValue;
         break;
       case "x":
-        displayValue = storedValue * displayValue;
+        displayValue *= storedValue;
         break;
       case "/":
         displayValue = storedValue / displayValue;
@@ -77,7 +77,11 @@ class Calculator extends React.Component {
       selectedOperator = value;
     }
 
-    this.setState({ displayValue, selectedOperator, storedValue });
+    this.setState({
+      displayValue,
+      selectedOperator,
+      storedValue
+    });
   };
 
   updateDisplay = value => {
@@ -94,10 +98,12 @@ class Calculator extends React.Component {
     } else {
       // replace displayValue with value if displayValue equal to '0'
       // else concatenate displayValue and value
-      displayValue === "0" ? (displayValue = value) : (displayValue += value);
+      displayValue = displayValue === "0" ? value : displayValue + value;
     }
 
-    this.setState({ displayValue });
+    this.setState({
+      displayValue
+    });
   };
 
   render = () => {
